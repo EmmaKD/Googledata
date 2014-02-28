@@ -9,17 +9,107 @@
 //I will then load the data
 //And then render the chart
 
-function pageLoaded(Mygoogledat){
-
-console.log("Creating Google data");	
+	function dataLoaded(Mygoogledat) {
+		
+		
 	
+	console.log("google visuals");
+
+//console.log("Mygoogledat");
+
+//I am trying to construct an array of arrays
+	var myDataArray = [];
+
+//This is are my headers
+	
+	var headerArray = ["Date", "value"];
+	
+		
+	myDataArray.push(headerArray);
+	
+	var myObsData = Mygoogledat.observations;
+	
+		//specify starting point and ending point
+	for (var i = 0; i < myObsData.length; i++) {
+	var dataLoaded = myObsData[i];
+	var newArray = [dataLoaded.date, Number(dataLoaded.value)];
+	myDataArray.push(newArray);
+	
+	var myDataTable = google.visualization.arrayToDataTable(myDataArray);
+	var options = {
+          title: 'Unemployment rate'
+        };
+	}
+//console.log(myDataArray);
+
+
+function googleVizLoaded(){
+	
+google.load("visualization", "1", {packages:["corechart"],callback : "googleVizLoaded"});
+
+//UNEMDATA is the local name of the json file I just loaded
+function dataLoaded() {
+
+	console.log(Mygoogledat);
+
+	
+}
+	
+
+	
+
+
+		//create reference to current object in list
+		var currObj = myObsData[i]
+
+		var currArray = [currObj.date, Number(currObj.value)];
+
+		myDataArray.push(currArray);
+
+		//end for loop
+	}
+	
+	console.log(myDataArray);
+	
+	
+	//feed data to visualization library
+	//create options object to actually customize the look if the chart
+	
+	
+
+	
+	//tell it to create a line chart, and give it the 
+	var myChart = new google.visualization.LineChart(document.getElementById("myChartDiv"));
+	myChart.draw(myDataTable);
+}
+
+function googleLoaded() {
+	
+	console.log("googleLoaded");
+	
+	$.get("Mygoogledat.json", dataLoaded, "json");
 	
 }
 
+console.log("google loaded");
 
-//this is the document ready function
-$(document).ready(pageLoaded);
+function pageLoad() {
 
-//load Google charting package
+	console.log("go to page loaded");
 
-google.load("visualization", "1", {packages:["corechart"]});
+	//load the google visualization library
+	google.load("visualization", '1', {
+		packages : ["corechart"],
+		callback : "googleLoaded"
+	}); 
+	
+
+	//
+
+	
+
+}
+
+
+$(document).ready(pageLoad);
+
