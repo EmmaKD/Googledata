@@ -9,18 +9,18 @@
 //I will then load the data
 //And then render the chart
 
+//Mygoogledat is the local name of the json file I just loaded
 	function dataLoaded(Mygoogledat) {
 		
 		
 	
 	console.log("google visuals");
 
-//console.log("Mygoogledat");
 
 //I am trying to construct an array of arrays
 	var myDataArray = [];
 
-//This is are my headers
+//Thsese are my headers
 	
 	var headerArray = ["Date", "value"];
 	
@@ -31,6 +31,7 @@
 	
 		//specify starting point and ending point
 	for (var i = 0; i < myObsData.length; i++) {
+	
 	var dataLoaded = myObsData[i];
 	var newArray = [dataLoaded.date, Number(dataLoaded.value)];
 	myDataArray.push(newArray);
@@ -47,7 +48,7 @@ function googleVizLoaded(){
 	
 google.load("visualization", "1", {packages:["corechart"],callback : "googleVizLoaded"});
 
-//UNEMDATA is the local name of the json file I just loaded
+
 function dataLoaded() {
 
 	console.log(Mygoogledat);
@@ -57,8 +58,6 @@ function dataLoaded() {
 	
 
 	
-
-
 		//create reference to current object in list
 		var currObj = myObsData[i]
 
