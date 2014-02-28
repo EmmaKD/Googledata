@@ -53,7 +53,7 @@ google.load("visualization", "1", {packages:["corechart"],callback : "googleVizL
 
 function dataLoaded() {
 
-	console.log(Mygoogledat);
+	console.log(myObsData);
 
 	
 }
