@@ -79,7 +79,7 @@ function dataLoaded() {
 
 	
 	//tell it to create a line chart, and give it the 
-	var myChart = new google.visualization.LineChart(document.getElementById("myChartDiv"));
+	var myChart = new google.visualization.ColumnChart(document.getElementById("myChartDiv"));
 	myChart.draw(myDataTable);
 }
 
