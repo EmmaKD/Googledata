@@ -26,10 +26,12 @@
 	
 		
 	myDataArray.push(headerArray);
-	
+
+//this is the pointer to my observations array
 	var myObsData = Mygoogledat.observations;
 	
-		//specify starting point and ending point
+		//to create the visualization I need to convert the Json data
+		//to an array of arrays using a for loop
 	for (var i = 0; i < myObsData.length; i++) {
 	
 	var dataLoaded = myObsData[i];
