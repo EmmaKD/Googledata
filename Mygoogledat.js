@@ -10,11 +10,11 @@
 //And then render the chart
 
 //Mygoogledat is the local name of the json file I just loaded
+//And this is the file loader with thw file nickname
 	function dataLoaded(Mygoogledat) {
 		
 		
-	
-	console.log("google visuals");
+		console.log("google visuals");
 
 
 //I am trying to construct an array of arrays
@@ -72,12 +72,10 @@ function dataLoaded() {
 	
 	
 	//feed data to visualization library
-	//create options object to actually customize the look if the chart
+	//create options object to actually customize the look of the chart
 	
 	
-
-	
-	//tell it to create a line chart, and give it the 
+	//tell it to create a column chart
 	var myChart = new google.visualization.ColumnChart(document.getElementById("myChartDiv"));
 	myChart.draw(myDataTable);
 }
@@ -86,6 +84,7 @@ function googleLoaded() {
 	
 	console.log("googleLoaded");
 	
+	//This gets my json file
 	$.get("Mygoogledat.json", dataLoaded, "json");
 	
 }
