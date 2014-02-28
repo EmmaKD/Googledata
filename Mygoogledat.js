@@ -18,9 +18,10 @@
 
 
 //I am trying to construct an array of arrays
+//
 	var myDataArray = [];
 
-//Thsese are my headers
+//These are my headers
 	
 	var headerArray = ["Date", "value"];
 	
@@ -39,6 +40,7 @@
 	myDataArray.push(newArray);
 	
 	var myDataTable = google.visualization.arrayToDataTable(myDataArray);
+	
 	var options = {
           title: 'Unemployment rate'
         };
@@ -78,7 +80,7 @@ function dataLoaded() {
 	
 	
 	//tell it to create a column chart
-	var myChart = new google.visualization.ColumnChart(document.getElementById("myChartDiv"));
+	var myChart = new google.visualization.LineChart(document.getElementById("myChartDiv"));
 	myChart.draw(myDataTable);
 }
 
@@ -97,7 +99,7 @@ function pageLoad() {
 
 	console.log("go to page loaded");
 
-	//load the google visualization library
+	//this loads the google visualization library
 	google.load("visualization", '1', {
 		packages : ["corechart"],
 		callback : "googleLoaded"
